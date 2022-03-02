@@ -13,7 +13,7 @@ let package = Package(
 //    ],
     dependencies: [
         .package(
-            name: "SendBirdSDK",
+//            name: "SendBirdSDK",
             url: "https://github.com/sendbird/sendbird-ios-framework",
             from: "3.1.1"
         ),
@@ -27,7 +27,7 @@ let package = Package(
             name: "SendBirdUIKit",
             dependencies: [
 //                .target(name: "SendBirdUIKit"),
-                .product(name: "SendBirdSDK", package: "SendBirdSDK")
+                .product(name: "SendBirdSDK", package: "sendbird-ios-framework")
             ],
             path: "Sources"
 //            exclude: ["Sample", "Sources"]
