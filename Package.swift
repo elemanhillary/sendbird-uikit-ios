@@ -5,12 +5,12 @@ import PackageDescription
 let package = Package(
     name: "SendBirdUIKit",
     platforms: [.iOS(.v11)],
-//    products: [
-//        .library(
-//            name: "SendBirdUIKit",
-//            targets: ["SendBirdUIKitTarget"]
-//        ),
-//    ],
+    products: [
+        .library(
+            name: "SendBirdUIKit",
+            targets: ["SendBirdUIKit"]
+        ),
+    ],
     dependencies: [
         .package(
 //            name: "SendBirdSDK",
