@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "SendBirdUIKit",
             targets: ["SendBirdUIKit"]
-        ),
+        )
     ],
     dependencies: [
         .package(
@@ -28,6 +28,9 @@ let package = Package(
             dependencies: [
 //                .target(name: "SendBirdUIKit"),
                 .product(name: "SendBirdSDK", package: "sendbird-ios-framework")
+            ],
+            resources: [
+              .process("Resource")
             ],
             path: "Sources"
 //            exclude: ["Sample", "Sources"]
