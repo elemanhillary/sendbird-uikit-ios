@@ -5,12 +5,12 @@ import PackageDescription
 let package = Package(
     name: "SendBirdUIKit",
     platforms: [.iOS(.v11)],
-    products: [
-        .library(
-            name: "SendBirdUIKit",
-            targets: ["SendBirdUIKitTarget"]
-        ),
-    ],
+//    products: [
+//        .library(
+//            name: "SendBirdUIKit",
+//            targets: ["SendBirdUIKitTarget"]
+//        ),
+//    ],
     dependencies: [
         .package(
             name: "SendBirdSDK",
@@ -19,18 +19,18 @@ let package = Package(
         ),
     ],
     targets: [
-        .binaryTarget(
-            name: "SendBirdUIKit",
-            path: "Framework/SendBirdUIKit.xcframework"
-        ),
+//        .binaryTarget(
+//            name: "SendBirdUIKit",
+//            path: "Framework/SendBirdUIKit.xcframework"
+//        ),
         .target(
-            name: "SendBirdUIKitTarget",
+            name: "SendBirdUIKit",
             dependencies: [
-                .target(name: "SendBirdUIKit"),
+//                .target(name: "SendBirdUIKit"),
                 .product(name: "SendBirdSDK", package: "SendBirdSDK")
             ],
-            path: "Framework/Dependency",
-            exclude: ["Sample", "Sources"]
-        ),
+            path: "Sources"
+//            exclude: ["Sample", "Sources"]
+        )
     ]
 )
