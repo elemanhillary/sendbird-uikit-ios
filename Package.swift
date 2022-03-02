@@ -29,10 +29,10 @@ let package = Package(
 //                .target(name: "SendBirdUIKit"),
                 .product(name: "SendBirdSDK", package: "sendbird-ios-framework")
             ],
+            path: "Sources",
             resources: [
               .process("Resource")
-            ],
-            path: "Sources"
+            ]
 //            exclude: ["Sample", "Sources"]
         )
     ]
