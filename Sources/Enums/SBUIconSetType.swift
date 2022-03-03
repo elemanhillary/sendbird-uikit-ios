@@ -83,10 +83,10 @@ enum SBUIconSetType: String, Hashable {
     
     // MARK: - Image handling
     
-    private static let bundle = Bundle(identifier: "com.sendbird.uikit")
+    private static let bundle = Bundle.init(identifier: "co.heyinnovation.desklessworkers")
     func load(tintColor: UIColor? = nil) -> UIImage {
-        print("Bundle.allBundles",Bundle.main.bundleIdentifier)
-        let image = UIImage(named: self.rawValue)!
+        print("Bundle.allBundles",self.rawValue, Bundle.main.bundleIdentifier)
+        let image = UIImage.init(named: self.rawValue, in: SBUIconSetType.bundle, compatibleWith: nil)!
         guard let tintColor = tintColor else { return image }
         
         return image.sbu_with(tintColor: tintColor)
