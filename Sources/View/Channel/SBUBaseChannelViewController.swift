@@ -649,7 +649,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         }
         
         // for remove from last
-        let sortedIndexes = toBeDeleteIndexes.sorted().reversed()
+        let sortedIndexes = toBeDeleteIndexes.sorted()
         
         for index in sortedIndexes {
             self.messageList.remove(at: index)

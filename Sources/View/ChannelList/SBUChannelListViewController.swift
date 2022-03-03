@@ -494,7 +494,7 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
         }
         
         // for remove from last
-        let sortedIndexes = toBeDeleteIndexes.sorted().reversed()
+        let sortedIndexes = toBeDeleteIndexes.sorted()
         
         for toBeDeleteIdx in sortedIndexes {
             self.channelList.remove(at: toBeDeleteIdx)
