@@ -85,7 +85,7 @@ enum SBUIconSetType: String, Hashable {
     
     private static let bundle = Bundle(identifier: "com.sendbird.uikit")
     func load(tintColor: UIColor? = nil) -> UIImage {
-        print("Bundle.allBundles",Bundle.allBundles, Bundle.allFrameworks)
+        print("Bundle.allBundles",Bundle.main.bundleIdentifier)
         let image = UIImage(named: self.rawValue)!
         guard let tintColor = tintColor else { return image }
         
