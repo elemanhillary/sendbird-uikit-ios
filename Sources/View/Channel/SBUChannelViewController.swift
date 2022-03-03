@@ -397,8 +397,8 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             channelStateBanner.backgroundColor = self.theme.channelStateBannerBackgroundColor
         }
         
-        self.view.backgroundColor = .theme.backgroundColor
-        self.tableView.backgroundColor = .theme.backgroundColor
+        self.view.backgroundColor = self.theme.backgroundColor
+        self.tableView.backgroundColor = self.theme.backgroundColor
     }
     
     open override func updateStyles() {
