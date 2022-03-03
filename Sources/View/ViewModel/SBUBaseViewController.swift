@@ -53,7 +53,7 @@ open class SBUBaseViewController: UIViewController {
     }
 }
 
-//extension SBUBaseViewController: UINavigationControllerDelegate {
+extension SBUBaseViewController: UINavigationControllerDelegate {
     
 //    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
 //        // prevent swipe to pop if current vc is the first one. App freezes (https://sendbird.atlassian.net/browse/QU-234)
@@ -63,4 +63,4 @@ open class SBUBaseViewController: UIViewController {
 //            navigationController.interactivePopGestureRecognizer?.isEnabled = false
 //        }
 //    }
-//}
+}
