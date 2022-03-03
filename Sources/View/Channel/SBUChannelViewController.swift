@@ -437,7 +437,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         SBDMain.add(self as SBDChannelDelegate, identifier: self.description)
         SBDMain.add(self as SBDConnectionDelegate, identifier: self.description)
@@ -541,7 +541,6 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             self.customizedMessageListParams = messageListParams
         } else if self.customizedMessageListParams == nil {
             let messageListParams = SBDMessageListParams()
-            messageListParams.reverse = false
             SBUGlobalCustomParams.messageListParamsBuilder?(messageListParams)
             self.customizedMessageListParams = messageListParams
         }
