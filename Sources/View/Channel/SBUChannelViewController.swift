@@ -541,6 +541,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             self.customizedMessageListParams = messageListParams
         } else if self.customizedMessageListParams == nil {
             let messageListParams = SBDMessageListParams()
+            messageListParams.reverse = false
             SBUGlobalCustomParams.messageListParamsBuilder?(messageListParams)
             self.customizedMessageListParams = messageListParams
         }
