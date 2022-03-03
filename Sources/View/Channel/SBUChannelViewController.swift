@@ -266,9 +266,9 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             self.register(unknownMessageCell: SBUUnknownMessageCell())
         }
 
-        self.emptyView?.transform = CGAffineTransform(scaleX: 1, y: -1)
+//        self.emptyView?.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.backgroundView = self.emptyView
-        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+//        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         self.view.addSubview(self.tableView)
@@ -397,8 +397,8 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             channelStateBanner.backgroundColor = self.theme.channelStateBannerBackgroundColor
         }
         
-        self.view.backgroundColor = .yellow
-        self.tableView.backgroundColor = .red
+        self.view.backgroundColor = .theme.backgroundColor
+        self.tableView.backgroundColor = .theme.backgroundColor
     }
     
     open override func updateStyles() {
@@ -1444,7 +1444,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: self.generateCellIdentifier(by: message)
             ) ?? UITableViewCell()
-        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+//        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         cell.selectionStyle = .none
         
         guard let messageCell = cell as? SBUBaseMessageCell else {
