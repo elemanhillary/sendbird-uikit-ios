@@ -102,7 +102,7 @@ class SBUMessageCache: NSObject {
         
         self.cachedMessageList.removeAll(where: { messages.contains($0) })
         self.cachedMessageList.append(contentsOf: messages)
-        self.cachedMessageList.sort(by: { $0.createdAt > $1.createdAt })
+        self.cachedMessageList.sort(by: { $0.createdAt < $1.createdAt })
     }
     
     func applyChangeLog(updated: [SBDBaseMessage]?, deleted: [Int64]?) {
@@ -132,7 +132,7 @@ class SBUMessageCache: NSObject {
             (self.cachedMessageList
                 .filter { !SBUUtils.contains(messageId: $0.messageId, in: messages) }
                 + messages)
-            .sorted(by: { $0.createdAt > $1.createdAt })
+            .sorted(by: { $0.createdAt < $1.createdAt })
         self.cachedMessageList.removeAll()
         
         SBULog.info("flush merged message : \(mergedList.count)")

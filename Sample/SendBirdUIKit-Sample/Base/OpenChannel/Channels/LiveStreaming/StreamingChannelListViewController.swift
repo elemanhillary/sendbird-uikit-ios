@@ -249,7 +249,7 @@ class StreamingChannelListViewController: SBUBaseChannelListViewController, SBUE
             .sorted(by: { (lhs: SBDOpenChannel, rhs: SBDOpenChannel) -> Bool in
                 let createdAt1 = lhs.createdAt
                 let createdAt2 = rhs.createdAt
-                return createdAt1 > createdAt2
+                return createdAt1 < createdAt2
             })
         
         self.channelList = sortedChannelList.sbu_unique()

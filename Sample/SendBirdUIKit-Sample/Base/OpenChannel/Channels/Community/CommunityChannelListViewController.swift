@@ -247,7 +247,7 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
         }
         
         // for remove from last
-        let sortedIndexes = toBeDeleteIndexes.sorted()
+        let sortedIndexes = toBeDeleteIndexes
         
         for toBeDeleteIdx in sortedIndexes {
             self.channelList.remove(at: toBeDeleteIdx)
