@@ -730,9 +730,9 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             channelUrl: self.baseChannel?.channelUrl
         )
         
-        self.messageList.sort { $0.createdAt > $1.createdAt }
+        self.messageList.sort { $0.createdAt < $1.createdAt }
         self.fullMessageList = pendingMessages
-            .sorted { $0.createdAt > $1.createdAt }
+            .sorted { $0.createdAt < $1.createdAt }
             + self.messageList
         
         if let emptyView = self.emptyView as? SBUEmptyView {
@@ -1263,7 +1263,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         if let newestMessage = self.messageList.first {
             // only filter out messages inserted at the bottom (newer) of current visible item
             nextInsertedCount = upsertedMessages
-                .filter({ $0.createdAt > newestMessage.createdAt })
+                .filter({ $0.createdAt < newestMessage.createdAt })
                 .filter({ !SBUUtils.contains(messageId: $0.messageId, in: self.messageList) }).count
         }
         
@@ -1275,7 +1275,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     /// If starting point is set, scroll to the starting point at `.middle`.
     func scrollToInitialPosition() {
         if let startingPoint = self.channelViewModel?.getStartingPoint() {
-            if let index = self.fullMessageList.firstIndex(where: { $0.createdAt <= startingPoint }) {
+            if let index = self.fullMessageList.firstIndex(where: { $0.createdAt >= startingPoint }) {
                 self.scrollTableViewTo(row: index, at: .middle)
             } else {
                 self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .top)

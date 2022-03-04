@@ -41,7 +41,7 @@ public class SBUPendingMessageManager: NSObject {
     func getPendingMessages(channelUrl: String?) -> [SBDBaseMessage] {
         guard let channelUrl = channelUrl else { return [] }
         let pendingDict = self.pendingMessages[channelUrl] ?? [:]
-        return pendingDict.map { $1 }.sorted { $0.createdAt > $1.createdAt };
+        return pendingDict.map { $1 }.sorted { $0.createdAt < $1.createdAt };
     }
     
     func removePendingMessage(channelUrl: String?, requestId: String?) {
