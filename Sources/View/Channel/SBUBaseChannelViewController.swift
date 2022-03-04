@@ -649,7 +649,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         }
         
         // for remove from last
-        let sortedIndexes = toBeDeleteIndexes
+        let sortedIndexes = toBeDeleteIndexes.sorted().reversed()
         
         for index in sortedIndexes {
             self.messageList.remove(at: index)
@@ -730,9 +730,9 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             channelUrl: self.baseChannel?.channelUrl
         )
         
-        self.messageList.sort { $0.createdAt < $1.createdAt }
+        self.messageList.sort { $0.createdAt > $1.createdAt }
         self.fullMessageList = pendingMessages
-            .sorted { $0.createdAt < $1.createdAt }
+            .sorted { $0.createdAt > $1.createdAt }
             + self.messageList
         
         if let emptyView = self.emptyView as? SBUEmptyView {
@@ -1275,10 +1275,10 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     /// If starting point is set, scroll to the starting point at `.middle`.
     func scrollToInitialPosition() {
         if let startingPoint = self.channelViewModel?.getStartingPoint() {
-            if let index = self.fullMessageList.firstIndex(where: { $0.createdAt >= startingPoint }) {
+            if let index = self.fullMessageList.firstIndex(where: { $0.createdAt <= startingPoint }) {
                 self.scrollTableViewTo(row: index, at: .middle)
             } else {
-                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .bottom)
+                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .top)
             }
         } else {
             self.scrollTableViewTo(row: 0)
