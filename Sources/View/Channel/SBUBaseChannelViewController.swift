@@ -1502,7 +1502,7 @@ extension SBUBaseChannelViewController: UITableViewDelegate, UITableViewDataSour
         
         if indexPath.row >= (self.fullMessageList.count - self.messageListParams.previousResultSize / 2),
            channelViewModel.hasPrevious() {
-            self.channelViewModel?.loadPrevMessages(timestamp: self.messageList.last?.createdAt)
+            self.channelViewModel?.loadPrevMessages(timestamp: self.messageList.first?.createdAt)
         } else if indexPath.row < 5,
                   channelViewModel.hasNext() {
             self.channelViewModel?.loadNextMessages()
