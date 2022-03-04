@@ -730,9 +730,9 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             channelUrl: self.baseChannel?.channelUrl
         )
         
-        self.messageList.sort { $0.createdAt < $1.createdAt }
+        self.messageList.sort { $0.createdAt > $1.createdAt }
         self.fullMessageList = pendingMessages
-            .sorted { $0.createdAt < $1.createdAt }
+            .sorted { $0.createdAt > $1.createdAt }
             + self.messageList
         
         if let emptyView = self.emptyView as? SBUEmptyView {
@@ -1502,7 +1502,7 @@ extension SBUBaseChannelViewController: UITableViewDelegate, UITableViewDataSour
         
         if indexPath.row >= (self.fullMessageList.count - self.messageListParams.previousResultSize / 2),
            channelViewModel.hasPrevious() {
-            self.channelViewModel?.loadPrevMessages(timestamp: self.messageList.first?.createdAt)
+            self.channelViewModel?.loadPrevMessages(timestamp: self.messageList.last?.createdAt)
         } else if indexPath.row < 5,
                   channelViewModel.hasNext() {
             self.channelViewModel?.loadNextMessages()
