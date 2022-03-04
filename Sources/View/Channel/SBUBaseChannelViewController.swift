@@ -103,9 +103,8 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         self.startingPoint = nil
         super.init(nibName: nil, bundle: nil)
         SBULog.info("")
-        let params = SBDMessageListParams()
-        params.reverse = false
-        self.customizedMessageListParams = params
+
+        self.customizedMessageListParams = messageListParams
 
         self.baseChannel = baseChannel
         self.channelUrl = baseChannel.channelUrl
@@ -731,9 +730,9 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             channelUrl: self.baseChannel?.channelUrl
         )
         
-        self.messageList.sort { $0.createdAt > $1.createdAt }
+        self.messageList.sort { $0.createdAt < $1.createdAt }
         self.fullMessageList = pendingMessages
-            .sorted { $0.createdAt > $1.createdAt }
+            .sorted { $0.createdAt < $1.createdAt }
             + self.messageList
         
         if let emptyView = self.emptyView as? SBUEmptyView {
