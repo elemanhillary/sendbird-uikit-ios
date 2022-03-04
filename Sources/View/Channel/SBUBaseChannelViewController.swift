@@ -1263,7 +1263,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         if let newestMessage = self.messageList.first {
             // only filter out messages inserted at the bottom (newer) of current visible item
             nextInsertedCount = upsertedMessages
-                .filter({ $0.createdAt < newestMessage.createdAt })
+                .filter({ $0.createdAt > newestMessage.createdAt })
                 .filter({ !SBUUtils.contains(messageId: $0.messageId, in: self.messageList) }).count
         }
         
@@ -1278,7 +1278,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             if let index = self.fullMessageList.firstIndex(where: { $0.createdAt >= startingPoint }) {
                 self.scrollTableViewTo(row: index, at: .middle)
             } else {
-                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .top)
+                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .bottom)
             }
         } else {
             self.scrollTableViewTo(row: 0)
