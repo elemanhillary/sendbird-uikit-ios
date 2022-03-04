@@ -732,7 +732,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         
         self.messageList.sort { $0.createdAt > $1.createdAt }
         self.fullMessageList = pendingMessages
-            .sorted { $0.createdAt > $1.createdAt }
+            .sorted { $0.createdAt < $1.createdAt }
             + self.messageList
         
         if let emptyView = self.emptyView as? SBUEmptyView {
