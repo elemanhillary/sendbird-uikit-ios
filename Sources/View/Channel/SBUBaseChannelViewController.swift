@@ -730,7 +730,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             channelUrl: self.baseChannel?.channelUrl
         )
         
-        self.messageList.sort { $0.createdAt > $1.createdAt }
+        self.messageList.sort { $0.createdAt < $1.createdAt }
         self.fullMessageList = pendingMessages
             .sorted { $0.createdAt < $1.createdAt }
             + self.messageList
