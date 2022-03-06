@@ -55,10 +55,10 @@ extension SBUBaseViewController: UINavigationControllerDelegate {
     
     open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // prevent swipe to pop if current vc is the first one. App freezes (https://sendbird.atlassian.net/browse/QU-234)
-//        if (navigationController.viewControllers.count > 1) {
+        if (navigationController.viewControllers.count > 1) {
             navigationController.interactivePopGestureRecognizer?.isEnabled = true
-//        } else {
-//            navigationController.interactivePopGestureRecognizer?.isEnabled = false
-//        }
+        } else {
+            navigationController.interactivePopGestureRecognizer?.isEnabled = false
+        }
     }
 }
