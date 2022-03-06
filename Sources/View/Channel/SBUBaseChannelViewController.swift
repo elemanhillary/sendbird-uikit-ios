@@ -1308,7 +1308,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
                 self.createViewModel(startingPoint: nil, showIndicator: false)
                 self.scrollTableViewTo(row: 0)
             } else {
-                let indexPath = IndexPath(row: 0, section: 0)
+                let indexPath = IndexPath(row: fullMessageList.count - 1, section: 0)
                 self.scrollTableViewTo(row: indexPath.row, animated: animated)
                 self.setNewMessageInfoView(hidden: true)
                 self.setScrollBottomView(hidden: true)
