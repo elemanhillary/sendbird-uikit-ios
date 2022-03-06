@@ -312,7 +312,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.tableViewTopConstraint = self.tableView.topAnchor.constraint(
-            equalTo: self.view.topAnchor,
+            equalTo: self.view.safeAreaLayoutGuide.topAnchor,
             constant: 0
         )
         NSLayoutConstraint.activate([
