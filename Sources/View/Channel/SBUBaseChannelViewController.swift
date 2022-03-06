@@ -277,7 +277,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             guard let self = self else { return }
             
             if loadingState {
-//                self.shouldShowLoadingIndicator()
+                self.shouldShowLoadingIndicator()
             } else {
                 self.shouldDismissLoadingIndicator()
             }
@@ -730,9 +730,9 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             channelUrl: self.baseChannel?.channelUrl
         )
         
-//        self.messageList.sorted { $0.createdAt < $1.createdAt }
+        self.messageList.sort { $0.createdAt > $1.createdAt }
         self.fullMessageList = pendingMessages
-//            .sorted { $0.createdAt < $1.createdAt }
+            .sorted { $0.createdAt > $1.createdAt }
             + self.messageList
         
         if let emptyView = self.emptyView as? SBUEmptyView {
@@ -1263,7 +1263,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         if let newestMessage = self.messageList.first {
             // only filter out messages inserted at the bottom (newer) of current visible item
             nextInsertedCount = upsertedMessages
-//                .filter({ $0.createdAt < newestMessage.createdAt })
+                .filter({ $0.createdAt > newestMessage.createdAt })
                 .filter({ !SBUUtils.contains(messageId: $0.messageId, in: self.messageList) }).count
         }
         
@@ -1278,7 +1278,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             if let index = self.fullMessageList.firstIndex(where: { $0.createdAt <= startingPoint }) {
                 self.scrollTableViewTo(row: index, at: .middle)
             } else {
-                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .bottom)
+                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .top)
             }
         } else {
             self.scrollTableViewTo(row: 0)
@@ -1286,8 +1286,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     }
     
     func isScrollNearBottom() -> Bool {
-        print("self.tableView.contentOffset.y", self.tableView.contentOffset.y)
-        return self.tableView.contentOffset.y > -10
+        return self.tableView.contentOffset.y < 10
     }
     
     /// This function scrolls to bottom.
@@ -1309,7 +1308,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
                 self.createViewModel(startingPoint: nil, showIndicator: false)
                 self.scrollTableViewTo(row: 0)
             } else {
-                let indexPath = IndexPath(row: self.fullMessageList.count - 1, section: 0)
+                let indexPath = IndexPath(row: 0, section: 0)
                 self.scrollTableViewTo(row: indexPath.row, animated: animated)
                 self.setNewMessageInfoView(hidden: true)
                 self.setScrollBottomView(hidden: true)
@@ -1503,7 +1502,7 @@ extension SBUBaseChannelViewController: UITableViewDelegate, UITableViewDataSour
         
         if indexPath.row >= (self.fullMessageList.count - self.messageListParams.previousResultSize / 2),
            channelViewModel.hasPrevious() {
-            self.channelViewModel?.loadPrevMessages(timestamp: self.messageList.first?.createdAt)
+            self.channelViewModel?.loadPrevMessages(timestamp: self.messageList.last?.createdAt)
         } else if indexPath.row < 5,
                   channelViewModel.hasNext() {
             self.channelViewModel?.loadNextMessages()
@@ -1547,7 +1546,7 @@ extension SBUBaseChannelViewController: LoadingIndicatorDelegate {
     @discardableResult
     open func shouldShowLoadingIndicator() -> Bool {
         SBULoading.start()
-        return false
+        return true
     }
     
     open func shouldDismissLoadingIndicator() {
@@ -1840,4 +1839,3 @@ extension SBUBaseChannelViewController: SBUFileViewerDelegate {
         self.baseChannel?.delete(message, completionHandler: nil)
     }
 }
-

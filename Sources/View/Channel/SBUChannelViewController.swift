@@ -246,9 +246,9 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         }
         
         self.navigationItem.titleView = stack
-//        if #available(iOS 13.0, *) {
-//            self.navigationController?.isModalInPresentation = true
-//        }
+        if #available(iOS 13.0, *) {
+            self.navigationController?.isModalInPresentation = true
+        }
         
         // Message Input View
         self.messageInputView.delegate = self
@@ -266,9 +266,9 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             self.register(unknownMessageCell: SBUUnknownMessageCell())
         }
 
-//        self.emptyView?.transform = CGAffineTransform(scaleX: 1, y: -1)
+        self.emptyView?.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.backgroundView = self.emptyView
-//        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         self.view.addSubview(self.tableView)
@@ -377,6 +377,17 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     
     open override func setupStyles() {
         super.setupStyles()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(
+            UIImage.from(color: theme.navigationBarTintColor),
+            for: .default
+        )
+        self.navigationController?.navigationBar.shadowImage = UIImage.from(
+            color: theme.navigationBarShadowColor
+        )
+        // For iOS 15
+        self.navigationController?.sbu_setupNavigationBarAppearance(tintColor: theme.navigationBarTintColor)
+        
         self.leftBarButton?.tintColor = theme.leftBarButtonTintColor
         self.rightBarButton?.tintColor = theme.rightBarButtonTintColor
         
@@ -386,8 +397,8 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
             channelStateBanner.backgroundColor = self.theme.channelStateBannerBackgroundColor
         }
         
-        self.view.backgroundColor = self.theme.backgroundColor
-        self.tableView.backgroundColor = self.theme.backgroundColor
+        self.view.backgroundColor = theme.backgroundColor
+        self.tableView.backgroundColor = theme.backgroundColor
     }
     
     open override func updateStyles() {
@@ -426,7 +437,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         SBDMain.add(self as SBDChannelDelegate, identifier: self.description)
         SBDMain.add(self as SBDConnectionDelegate, identifier: self.description)
@@ -520,7 +531,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     /// This function is used to load channel information.
     /// - Parameters:
     ///   - channelUrl: channel url
-    ///   - messageListParams: (Optional) The parameter to be used when getting channel information. 
+    ///   - messageListParams: (Optional) The parameter to be used when getting channel information.
     public override func loadChannel(channelUrl: String?, messageListParams: SBDMessageListParams? = nil) {
         guard let channelUrl = channelUrl else { return }
         self.shouldShowLoadingIndicator()
@@ -1056,12 +1067,9 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     public func checkSameDayAsNextMessage(currentIndex: Int) -> Bool {
         guard currentIndex < self.fullMessageList.count-1 else { return false }
         
-        let currentMessage = self.fullMessageList[currentIndex+1]
-        let nextMessage = self.fullMessageList[currentIndex]
+        let currentMessage = self.fullMessageList[currentIndex]
+        let nextMessage = self.fullMessageList[currentIndex+1]
         
-        
-        print("currentMessage", currentMessage)
-        print("nextMessage", nextMessage)
         let curCreatedAt = currentMessage.createdAt
         let prevCreatedAt = nextMessage.createdAt
         
@@ -1436,7 +1444,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: self.generateCellIdentifier(by: message)
             ) ?? UITableViewCell()
-//        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         cell.selectionStyle = .none
         
         guard let messageCell = cell as? SBUBaseMessageCell else {
