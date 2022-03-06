@@ -1075,11 +1075,11 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         } else {
             guard showIndicator else { return }
             
-            if loadingState {
-                SBULoading.start()
-            } else {
-                SBULoading.stop()
-            }
+//            if loadingState {
+//                SBULoading.start()
+//            } else {
+//                SBULoading.stop()
+//            }
         }
     }
     
