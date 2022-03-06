@@ -437,9 +437,9 @@ open class SBUOpenChannelViewController: SBUBaseChannelViewController {
             self.register(unknownMessageCell: SBUOpenChannelUnknownMessageCell())
         }
 
-//        self.emptyView?.transform = CGAffineTransform(scaleX: 1, y: -1)
+        self.emptyView?.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.backgroundView = self.emptyView
-//        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         self.view.addSubview(self.tableView)
