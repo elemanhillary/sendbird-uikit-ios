@@ -1056,8 +1056,8 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     public func checkSameDayAsNextMessage(currentIndex: Int) -> Bool {
         guard currentIndex < self.fullMessageList.count-1 else { return false }
         
-        let currentMessage = self.fullMessageList[currentIndex]
-        let nextMessage = self.fullMessageList[currentIndex+1]
+        let currentMessage = self.fullMessageList[currentIndex+1]
+        let nextMessage = self.fullMessageList[currentIndex]
         
         
         print("currentMessage", currentMessage)
