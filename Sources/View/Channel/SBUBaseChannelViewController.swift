@@ -1286,6 +1286,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     }
     
     func isScrollNearBottom() -> Bool {
+        print("self.tableView.contentOffset.y", self.tableView.contentOffset.y)
         return self.tableView.contentOffset.y < 10
     }
     
