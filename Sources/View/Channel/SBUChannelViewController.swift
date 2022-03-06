@@ -1080,11 +1080,11 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     ///   - showIndicator: If true, the loading indicator is started, and if false, the indicator is stopped.
     public override func setLoading(_ loadingState: Bool, _ showIndicator: Bool) {
         if let channelViewModel = self.channelViewModel {
-            channelViewModel.setLoading(loadingState, showIndicator)
+            channelViewModel.setLoading(loadingState, false)
         } else {
             guard showIndicator else { return }
             
-            if loadingState {
+            if false {
                 SBULoading.start()
             } else {
                 SBULoading.stop()
