@@ -16,12 +16,15 @@ open class SBUBaseViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
-        self.navigationController?.delegate = self
+        
+//        self.navigationController?.delegate = self
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         SBUUtils.dismissPresentedOnDisappear(presentedViewController: self.presentedViewController)
+        
         SBULoading.stop()
         SBUMenuView.dismiss()
         SBUAlertView.dismiss()
@@ -52,12 +55,12 @@ open class SBUBaseViewController: UIViewController {
 
 extension SBUBaseViewController: UINavigationControllerDelegate {
     
-    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        // prevent swipe to pop if current vc is the first one. App freezes (https://sendbird.atlassian.net/browse/QU-234)
-        if (navigationController.viewControllers.count > 1) {
-            navigationController.interactivePopGestureRecognizer?.isEnabled = true
-        } else {
-            navigationController.interactivePopGestureRecognizer?.isEnabled = false
-        }
-    }
+//    open func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+//        // prevent swipe to pop if current vc is the first one. App freezes (https://sendbird.atlassian.net/browse/QU-234)
+//        if (navigationController.viewControllers.count > 1) {
+//            navigationController.interactivePopGestureRecognizer?.isEnabled = true
+//        } else {
+//            navigationController.interactivePopGestureRecognizer?.isEnabled = false
+//        }
+//    }
 }
