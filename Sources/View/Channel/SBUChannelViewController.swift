@@ -377,7 +377,6 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     
     open override func setupStyles() {
         super.setupStyles()
-        
         self.leftBarButton?.tintColor = theme.leftBarButtonTintColor
         self.rightBarButton?.tintColor = theme.rightBarButtonTintColor
         
