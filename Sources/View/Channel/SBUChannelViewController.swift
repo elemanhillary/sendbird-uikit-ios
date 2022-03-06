@@ -1059,6 +1059,9 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         let currentMessage = self.fullMessageList[currentIndex]
         let nextMessage = self.fullMessageList[currentIndex+1]
         
+        
+        print("currentMessage", currentMessage)
+        print("nextMessage", nextMessage)
         let curCreatedAt = currentMessage.createdAt
         let prevCreatedAt = nextMessage.createdAt
         
