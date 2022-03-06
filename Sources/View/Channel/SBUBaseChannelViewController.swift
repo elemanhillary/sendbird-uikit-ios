@@ -186,7 +186,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         self.tableView.allowsSelection = false
         self.tableView.keyboardDismissMode = .interactive
         self.tableView.bounces = false
-        self.tableView.alwaysBounceVertical = false
+        self.tableView.alwaysBounceVertical = true
     }
     
     deinit {
@@ -209,7 +209,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         
         scrollBottomButton.layer.cornerRadius = scrollBottomButton.frame.height / 2
         scrollBottomButton.clipsToBounds = true
-        
+        scrollBottomButton.isHidden = true
         scrollBottomButton.setImage(SBUIconSetType.iconChevronDown.image(with: theme.scrollBottomButtonIconColor,
                                                                          to: SBUIconSetType.Metric.iconChevronDown),
                                     for: .normal)
@@ -499,12 +499,12 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     public func addGestureHideKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
-//        tableView.addGestureRecognizer(tap)
+        tableView.addGestureRecognizer(tap)
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(dismissKeyboardIfTouchInput))
         pan.delegate = self
         pan.cancelsTouchesInView = false
-//        tableView.addGestureRecognizer(pan)
+        tableView.addGestureRecognizer(pan)
     }
     
     // MARK: - Channel

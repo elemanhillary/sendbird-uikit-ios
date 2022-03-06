@@ -22,9 +22,7 @@ open class SBUBaseViewController: UIViewController {
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         SBUUtils.dismissPresentedOnDisappear(presentedViewController: self.presentedViewController)
-        
         SBULoading.stop()
         SBUMenuView.dismiss()
         SBUAlertView.dismiss()
