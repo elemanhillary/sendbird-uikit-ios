@@ -1263,7 +1263,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
         if let newestMessage = self.messageList.first {
             // only filter out messages inserted at the bottom (newer) of current visible item
             nextInsertedCount = upsertedMessages
-                .filter({ $0.createdAt < newestMessage.createdAt })
+//                .filter({ $0.createdAt < newestMessage.createdAt })
                 .filter({ !SBUUtils.contains(messageId: $0.messageId, in: self.messageList) }).count
         }
         
