@@ -1275,7 +1275,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     /// If starting point is set, scroll to the starting point at `.middle`.
     func scrollToInitialPosition() {
         if let startingPoint = self.channelViewModel?.getStartingPoint() {
-            if let index = self.fullMessageList.firstIndex(where: { $0.createdAt >= startingPoint }) {
+            if let index = self.fullMessageList.firstIndex(where: { $0.createdAt <= startingPoint }) {
                 self.scrollTableViewTo(row: index, at: .middle)
             } else {
                 self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .bottom)
