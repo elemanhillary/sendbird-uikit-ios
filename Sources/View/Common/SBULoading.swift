@@ -34,7 +34,7 @@ public class SBULoading: NSObject {
     /// This static function starts the loading indicator.
     public static func start() {
         guard !SBULoading.shared.isShowing() else { return }
-        SBULoading.shared.show()
+//        SBULoading.shared.show()
     }
     
     /// This static function stops the loading indicator.
