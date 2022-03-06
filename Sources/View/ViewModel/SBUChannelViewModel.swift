@@ -67,7 +67,7 @@ class SBUChannelViewModel: SBULoadableViewModel {
             self.messageListParams.nextResultSize = self.defaultFetchLimit
         }
         
-        self.messageListParams.reverse = true
+        self.messageListParams.reverse = false
         self.messageListParams.includeReactions = SBUEmojiManager.useReaction(channel: channel)
         
         self.messageListParams.includeThreadInfo = true
