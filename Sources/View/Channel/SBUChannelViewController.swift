@@ -523,7 +523,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     ///   - messageListParams: (Optional) The parameter to be used when getting channel information. 
     public override func loadChannel(channelUrl: String?, messageListParams: SBDMessageListParams? = nil) {
         guard let channelUrl = channelUrl else { return }
-//        self.shouldShowLoadingIndicator()
+        self.shouldShowLoadingIndicator()
         
         //NOTE: this load channel do too much work...
         if let messageListParams = messageListParams {
@@ -1090,61 +1090,61 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     /// - Returns: Position of a message when grouped
     /// - Since: 1.2.1
     public func getMessageGroupingPosition(currentIndex: Int) -> MessageGroupPosition {
-        guard currentIndex < self.fullMessageList.count else { return .none }
-        
-        let prevMessage = self.fullMessageList.count - 1 != currentIndex
-            ? self.fullMessageList[currentIndex-1]
-            : nil
-        let currentMessage = self.fullMessageList[currentIndex]
-        let nextMessage = currentIndex != 0
-            ? self.fullMessageList[currentIndex+1]
-            : nil
-        
-        let succeededPrevMsg = prevMessage?.sendingStatus != .failed
-            ? prevMessage
-            : nil
-        let succeededCurrentMsg = currentMessage.sendingStatus != .failed
-            ? currentMessage
-            : nil
-        let succeededNextMsg = nextMessage?.sendingStatus != .failed
-            ? nextMessage
-            : nil
-        
-        let prevSender = succeededPrevMsg?.sender?.userId ?? nil
-        let currentSender = succeededCurrentMsg?.sender?.userId ?? nil
-        let nextSender = succeededNextMsg?.sender?.userId ?? nil
-        
-        // Unit : milliseconds
-        let prevTimestamp = Date.sbu_from(succeededPrevMsg?.createdAt ?? -1).sbu_toString(
-            format: .yyyyMMddhhmm
-        )
-        let currentTimestamp = Date.sbu_from(succeededCurrentMsg?.createdAt ?? -1).sbu_toString(
-            format: .yyyyMMddhhmm
-        )
-        let nextTimestamp = Date.sbu_from(succeededNextMsg?.createdAt ?? -1).sbu_toString(
-            format: .yyyyMMddhhmm
-        )
-        
-        if prevSender != currentSender && nextSender != currentSender {
-            return .none
-        }
-        else if prevSender == currentSender && nextSender == currentSender {
-            if prevTimestamp == nextTimestamp {
-                return .middle
-            }
-            else if prevTimestamp == currentTimestamp {
-                return .bottom
-            }
-            else if currentTimestamp == nextTimestamp {
-                return .top
-            }
-        }
-        else if prevSender == currentSender && nextSender != currentSender {
-            return prevTimestamp == currentTimestamp ? .bottom : .none
-        }
-        else if prevSender != currentSender && nextSender == currentSender {
-            return currentTimestamp == nextTimestamp ? .top : .none
-        }
+//        guard currentIndex < self.fullMessageList.count else { return .none }
+//        
+//        let prevMessage = self.fullMessageList.count - 1 != currentIndex
+//            ? self.fullMessageList[currentIndex+1]
+//            : nil
+//        let currentMessage = self.fullMessageList[currentIndex]
+//        let nextMessage = currentIndex != 0
+//            ? self.fullMessageList[currentIndex-1]
+//            : nil
+//        
+//        let succeededPrevMsg = prevMessage?.sendingStatus != .failed
+//            ? prevMessage
+//            : nil
+//        let succeededCurrentMsg = currentMessage.sendingStatus != .failed
+//            ? currentMessage
+//            : nil
+//        let succeededNextMsg = nextMessage?.sendingStatus != .failed
+//            ? nextMessage
+//            : nil
+//        
+//        let prevSender = succeededPrevMsg?.sender?.userId ?? nil
+//        let currentSender = succeededCurrentMsg?.sender?.userId ?? nil
+//        let nextSender = succeededNextMsg?.sender?.userId ?? nil
+//        
+//        // Unit : milliseconds
+//        let prevTimestamp = Date.sbu_from(succeededPrevMsg?.createdAt ?? -1).sbu_toString(
+//            format: .yyyyMMddhhmm
+//        )
+//        let currentTimestamp = Date.sbu_from(succeededCurrentMsg?.createdAt ?? -1).sbu_toString(
+//            format: .yyyyMMddhhmm
+//        )
+//        let nextTimestamp = Date.sbu_from(succeededNextMsg?.createdAt ?? -1).sbu_toString(
+//            format: .yyyyMMddhhmm
+//        )
+//        
+//        if prevSender != currentSender && nextSender != currentSender {
+//            return .none
+//        }
+//        else if prevSender == currentSender && nextSender == currentSender {
+//            if prevTimestamp == nextTimestamp {
+//                return .middle
+//            }
+//            else if prevTimestamp == currentTimestamp {
+//                return .bottom
+//            }
+//            else if currentTimestamp == nextTimestamp {
+//                return .top
+//            }
+//        }
+//        else if prevSender == currentSender && nextSender != currentSender {
+//            return prevTimestamp == currentTimestamp ? .bottom : .none
+//        }
+//        else if prevSender != currentSender && nextSender == currentSender {
+//            return currentTimestamp == nextTimestamp ? .top : .none
+//        }
         
         return .none
     }
