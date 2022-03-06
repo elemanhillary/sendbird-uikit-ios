@@ -277,7 +277,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             guard let self = self else { return }
             
             if loadingState {
-                self.shouldShowLoadingIndicator()
+//                self.shouldShowLoadingIndicator()
             } else {
                 self.shouldDismissLoadingIndicator()
             }
@@ -1278,7 +1278,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             if let index = self.fullMessageList.firstIndex(where: { $0.createdAt >= startingPoint }) {
                 self.scrollTableViewTo(row: index, at: .middle)
             } else {
-                self.scrollTableViewTo(row: 0, at: .bottom)
+                self.scrollTableViewTo(row: self.fullMessageList.count - 1, at: .bottom)
             }
         } else {
             self.scrollTableViewTo(row: 0)
