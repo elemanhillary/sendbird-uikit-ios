@@ -622,15 +622,15 @@ open class SBUOpenChannelViewController: SBUBaseChannelViewController {
     open override func setupStyles() {
         let theme = self.isMediaViewOverlaying ? self.overlayTheme : self.theme
         
-        self.navigationController?.navigationBar.setBackgroundImage(
-            UIImage.from(color: theme.navigationBarTintColor),
-            for: .default
-        )
-        self.navigationController?.navigationBar.shadowImage = UIImage.from(
-            color: theme.navigationBarShadowColor
-        )
-        // For iOS 15
-        self.navigationController?.sbu_setupNavigationBarAppearance(tintColor: theme.navigationBarTintColor)
+//        self.navigationController?.navigationBar.setBackgroundImage(
+//            UIImage.from(color: theme.navigationBarTintColor),
+//            for: .default
+//        )
+//        self.navigationController?.navigationBar.shadowImage = UIImage.from(
+//            color: theme.navigationBarShadowColor
+//        )
+//        // For iOS 15
+//        self.navigationController?.sbu_setupNavigationBarAppearance(tintColor: theme.navigationBarTintColor)
         
         self.leftBarButton?.tintColor = theme.leftBarButtonTintColor
         self.rightBarButton?.tintColor = theme.rightBarButtonTintColor
@@ -785,7 +785,7 @@ open class SBUOpenChannelViewController: SBUBaseChannelViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         // This view is above `mediaView`
         self.messageTopMarginView.isUserInteractionEnabled = false
         self.messageLeftMarginView.isUserInteractionEnabled = false
