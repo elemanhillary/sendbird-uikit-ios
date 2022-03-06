@@ -409,7 +409,7 @@ open class SBUOpenChannelViewController: SBUBaseChannelViewController {
 
         self.navigationItem.titleView = stack
         if #available(iOS 13.0, *) {
-            self.navigationController?.isModalInPresentation = true
+            self.navigationController?.isModalInPresentation = false
         }
 
         self.navigationController?.isNavigationBarHidden = self.hideNavigationBar

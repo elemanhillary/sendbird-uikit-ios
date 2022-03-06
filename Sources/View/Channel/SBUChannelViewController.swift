@@ -247,7 +247,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         
         self.navigationItem.titleView = stack
         if #available(iOS 13.0, *) {
-            self.navigationController?.isModalInPresentation = true
+            self.navigationController?.isModalInPresentation = false
         }
         
         // Message Input View
