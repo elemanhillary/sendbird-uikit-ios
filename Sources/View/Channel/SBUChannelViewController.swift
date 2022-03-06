@@ -473,7 +473,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     
     // MARK: - View Binding
     
-    override func createViewModel(startingPoint: Int64?, showIndicator: Bool = true) {
+    override func createViewModel(startingPoint: Int64?, showIndicator: Bool = false) {
         super.createViewModel(startingPoint: startingPoint, showIndicator: showIndicator)
         
         self.messageInputView.setMode(.none)
@@ -1082,7 +1082,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         if let channelViewModel = self.channelViewModel {
             channelViewModel.setLoading(loadingState, false)
         } else {
-            guard showIndicator else { return }
+            guard false else { return }
             
             if false {
                 SBULoading.start()
