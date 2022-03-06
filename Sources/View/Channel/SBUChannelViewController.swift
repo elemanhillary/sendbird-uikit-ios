@@ -523,7 +523,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
     ///   - messageListParams: (Optional) The parameter to be used when getting channel information. 
     public override func loadChannel(channelUrl: String?, messageListParams: SBDMessageListParams? = nil) {
         guard let channelUrl = channelUrl else { return }
-        self.shouldShowLoadingIndicator()
+//        self.shouldShowLoadingIndicator()
         
         //NOTE: this load channel do too much work...
         if let messageListParams = messageListParams {
@@ -1075,11 +1075,11 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         } else {
             guard showIndicator else { return }
             
-//            if loadingState {
-//                SBULoading.start()
-//            } else {
-//                SBULoading.stop()
-//            }
+            if loadingState {
+                SBULoading.start()
+            } else {
+                SBULoading.stop()
+            }
         }
     }
     
@@ -1093,11 +1093,11 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         guard currentIndex < self.fullMessageList.count else { return .none }
         
         let prevMessage = self.fullMessageList.count - 1 != currentIndex
-            ? self.fullMessageList[currentIndex+1]
+            ? self.fullMessageList[currentIndex-1]
             : nil
         let currentMessage = self.fullMessageList[currentIndex]
         let nextMessage = currentIndex != 0
-            ? self.fullMessageList[currentIndex-1]
+            ? self.fullMessageList[currentIndex+1]
             : nil
         
         let succeededPrevMsg = prevMessage?.sendingStatus != .failed
