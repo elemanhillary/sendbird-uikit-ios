@@ -528,13 +528,13 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     
     /// To keep track of which scrolls tableview.
     func scrollTableViewTo(row: Int, at position: UITableView.ScrollPosition = .top, animated: Bool = false) {
-        if self.fullMessageList.isEmpty || row < 0 || row >= self.fullMessageList.count {
-            guard self.tableView.contentOffset != .zero else { return }
-            
-            self.tableView.setContentOffset(.zero, animated: false)
-        } else {
-            self.tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: position, animated: animated)
-        }
+//        if self.fullMessageList.isEmpty || row < 0 || row >= self.fullMessageList.count {
+//            guard self.tableView.contentOffset != .zero else { return }
+//            
+//            self.tableView.setContentOffset(.zero, animated: false)
+//        } else {
+//            self.tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: position, animated: animated)
+//        }
     }
     
     /// This function upserts the messages in the list.
