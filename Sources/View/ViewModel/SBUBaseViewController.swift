@@ -16,8 +16,7 @@ open class SBUBaseViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
-        
-//        self.navigationController?.delegate = self
+        self.navigationController?.delegate = self
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
