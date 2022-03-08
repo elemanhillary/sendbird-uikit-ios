@@ -498,13 +498,13 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     /// - Since: 1.2.5
     public func addGestureHideKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        tableView.addGestureRecognizer(tap)
+//        tap.cancelsTouchesInView = false
+//        tableView.addGestureRecognizer(tap)
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(dismissKeyboardIfTouchInput))
         pan.delegate = self
-        pan.cancelsTouchesInView = false
-        tableView.addGestureRecognizer(pan)
+//        pan.cancelsTouchesInView = false
+//        tableView.addGestureRecognizer(pan)
     }
     
     // MARK: - Channel
