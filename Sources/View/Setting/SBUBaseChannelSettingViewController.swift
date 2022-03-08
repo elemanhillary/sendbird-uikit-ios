@@ -194,16 +194,16 @@ open class SBUBaseChannelSettingViewController: SBUBaseViewController {
     
     /// This function handles the initialization of styles.
     open override func setupStyles() {
-        self.navigationController?.navigationBar.setBackgroundImage(
-            UIImage.from(color: theme.navigationBarTintColor),
-            for: .default
-        )
-        self.navigationController?.navigationBar.shadowImage = UIImage.from(
-            color: theme.navigationShadowColor
-        )
-        
-        // For iOS 15
-        self.navigationController?.sbu_setupNavigationBarAppearance(tintColor: theme.navigationBarTintColor)
+//        self.navigationController?.navigationBar.setBackgroundImage(
+//            UIImage.from(color: theme.navigationBarTintColor),
+//            for: .default
+//        )
+//        self.navigationController?.navigationBar.shadowImage = UIImage.from(
+//            color: theme.navigationShadowColor
+//        )
+//        
+//        // For iOS 15
+//        self.navigationController?.sbu_setupNavigationBarAppearance(tintColor: theme.navigationBarTintColor)
         
         self.leftBarButton?.tintColor = theme.leftBarButtonTintColor
         self.rightBarButton?.tintColor = theme.rightBarButtonTintColor
