@@ -19,10 +19,10 @@ extension UINavigationController {
     @objc
     open func sbu_setupNavigationBarAppearance(tintColor: UIColor) {
         guard #available(iOS 15.0, *) else { return }
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = tintColor
-        self.navigationBar.standardAppearance = appearance
-        self.navigationBar.scrollEdgeAppearance = appearance
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = tintColor
+//        self.navigationBar.standardAppearance = appearance
+//        self.navigationBar.scrollEdgeAppearance = appearance
     }
 }

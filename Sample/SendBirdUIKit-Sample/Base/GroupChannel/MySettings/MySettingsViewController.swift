@@ -110,16 +110,16 @@ open class MySettingsViewController: UIViewController, UINavigationControllerDel
     open func setupStyles() {
         self.theme = SBUTheme.channelSettingsTheme
         
-        self.navigationController?.navigationBar.setBackgroundImage(
-            UIImage.from(color: theme.navigationBarTintColor),
-            for: .default
-        )
-        self.navigationController?.navigationBar.shadowImage = UIImage.from(
-            color: theme.navigationShadowColor
-        )
-        self.navigationController?.sbu_setupNavigationBarAppearance(
-            tintColor: theme.navigationBarTintColor
-        )
+//        self.navigationController?.navigationBar.setBackgroundImage(
+//            UIImage.from(color: theme.navigationBarTintColor),
+//            for: .default
+//        )
+//        self.navigationController?.navigationBar.shadowImage = UIImage.from(
+//            color: theme.navigationShadowColor
+//        )
+//        self.navigationController?.sbu_setupNavigationBarAppearance(
+//            tintColor: theme.navigationBarTintColor
+//        )
         
         self.rightBarButton.tintColor = theme.rightBarButtonTintColor
         

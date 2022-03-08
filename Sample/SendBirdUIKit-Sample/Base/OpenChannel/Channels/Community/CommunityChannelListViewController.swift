@@ -127,16 +127,16 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
     override func setupStyles() {
         self.theme = SBUTheme.channelListTheme
         
-        self.navigationController?.navigationBar.setBackgroundImage(
-            UIImage.from(color: theme.navigationBarTintColor),
-            for: .default
-        )
-        self.navigationController?.navigationBar.shadowImage = UIImage.from(
-            color: theme.navigationBarShadowColor
-        )
-        self.navigationController?.sbu_setupNavigationBarAppearance(
-            tintColor: theme.navigationBarTintColor
-        )
+//        self.navigationController?.navigationBar.setBackgroundImage(
+//            UIImage.from(color: theme.navigationBarTintColor),
+//            for: .default
+//        )
+//        self.navigationController?.navigationBar.shadowImage = UIImage.from(
+//            color: theme.navigationBarShadowColor
+//        )
+//        self.navigationController?.sbu_setupNavigationBarAppearance(
+//            tintColor: theme.navigationBarTintColor
+//        )
         
         self.rightBarButton.tintColor = theme.rightBarButtonTintColor
         

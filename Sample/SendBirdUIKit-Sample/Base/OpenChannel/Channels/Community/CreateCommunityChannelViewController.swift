@@ -131,16 +131,16 @@ open class CreateCommunityChannelViewController: UIViewController, UINavigationC
     open func setupStyles() {
         self.theme = SBUTheme.userListTheme
         
-        self.navigationController?.navigationBar.setBackgroundImage(
-            UIImage.from(color: theme.navigationBarTintColor),
-            for: .default
-        )
-        self.navigationController?.navigationBar.shadowImage = UIImage.from(
-            color: theme.navigationShadowColor
-        )
-        self.navigationController?.sbu_setupNavigationBarAppearance(
-            tintColor: theme.navigationBarTintColor
-        )
+//        self.navigationController?.navigationBar.setBackgroundImage(
+//            UIImage.from(color: theme.navigationBarTintColor),
+//            for: .default
+//        )
+//        self.navigationController?.navigationBar.shadowImage = UIImage.from(
+//            color: theme.navigationShadowColor
+//        )
+//        self.navigationController?.sbu_setupNavigationBarAppearance(
+//            tintColor: theme.navigationBarTintColor
+//        )
         
         self.leftBarButton.tintColor = theme.leftBarButtonTintColor
         self.rightBarButton.tintColor = theme.barButtonDisabledTintColor
