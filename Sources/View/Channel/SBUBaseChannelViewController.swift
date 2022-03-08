@@ -490,8 +490,8 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
     }
     
     private func cancel(gestureRecognizer: UIGestureRecognizer) {
-        gestureRecognizer.isEnabled = false
-        gestureRecognizer.isEnabled = true
+//        gestureRecognizer.isEnabled = false
+//        gestureRecognizer.isEnabled = true
     }
     
     /// This functions adds the hide keyboard gesture in tableView.
