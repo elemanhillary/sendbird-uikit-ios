@@ -1477,11 +1477,11 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
 }
 
 extension SBUBaseChannelViewController: UIGestureRecognizerDelegate {
-//    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-//           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
-//            -> Bool {
-//       return true
-//    }
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+            -> Bool {
+       return false
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
