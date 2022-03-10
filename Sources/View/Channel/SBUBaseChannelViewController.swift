@@ -1835,7 +1835,6 @@ extension SBUBaseChannelViewController: SBUMessageInputViewDelegate {
 extension SBUBaseChannelViewController: SBUFileViewerDelegate {
     open func didSelectDeleteImage(message: SBDFileMessage) {
         SBULog.info("[Request] Delete message: \(message.description)")
-        
         self.baseChannel?.delete(message, completionHandler: nil)
     }
 }
