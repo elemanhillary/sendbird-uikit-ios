@@ -603,7 +603,7 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
         }
         
         self.createViewModel()
-        self.loadNextChannelList(reset: true)
+        self.loadNextChannelList(reset: false)
     }
     
     func showNetworkError() {
