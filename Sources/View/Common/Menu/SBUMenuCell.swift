@@ -43,34 +43,34 @@ class SBUMenuCell: UITableViewCell {
         switch type {
         case .save:
             self.titleLabel?.text = SBUStringSet.Save
-            self.iconImageView.image = SBUIconSetType.iconDownload.image(
-                with: iconTintColor,
-                to: SBUIconSetType.Metric.iconActionSheetItem
-            )
+//            self.iconImageView.image = SBUIconSetType.iconDownload.image(
+//                with: iconTintColor,
+//                to: SBUIconSetType.Metric.iconActionSheetItem
+//            )
         case .copy:
             self.titleLabel?.text = SBUStringSet.Copy
-            self.iconImageView.image = SBUIconSetType.iconCopy.image(
-                with: iconTintColor,
-                to: SBUIconSetType.Metric.iconActionSheetItem
-            )
+//            self.iconImageView.image = SBUIconSetType.iconCopy.image(
+//                with: iconTintColor,
+//                to: SBUIconSetType.Metric.iconActionSheetItem
+//            )
         case .edit:
             self.titleLabel?.text = SBUStringSet.Edit
-            self.iconImageView.image = SBUIconSetType.iconEdit.image(
-                with: iconTintColor,
-                to: SBUIconSetType.Metric.iconActionSheetItem
-            )
+//            self.iconImageView.image = SBUIconSetType.iconEdit.image(
+//                with: iconTintColor,
+//                to: SBUIconSetType.Metric.iconActionSheetItem
+//            )
         case .delete:
             self.titleLabel?.text = SBUStringSet.Delete
-            self.iconImageView.image = SBUIconSetType.iconDelete.image(
-                with: iconTintColor,
-                to: SBUIconSetType.Metric.iconActionSheetItem
-            )
+//            self.iconImageView.image = SBUIconSetType.iconDelete.image(
+//                with: iconTintColor,
+//                to: SBUIconSetType.Metric.iconActionSheetItem
+//            )
         case .reply:
             self.titleLabel?.text = SBUStringSet.Reply
-            self.iconImageView.image = SBUIconSetType.iconReply.image(
-                with: iconTintColor,
-                to: SBUIconSetType.Metric.iconActionSheetItem
-            )
+//            self.iconImageView.image = SBUIconSetType.iconReply.image(
+//                with: iconTintColor,
+//                to: SBUIconSetType.Metric.iconActionSheetItem
+//            )
         }
     }
 }
