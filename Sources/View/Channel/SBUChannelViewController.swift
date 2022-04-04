@@ -271,6 +271,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         self.tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
+        self.tableView.isUserInteractionEnabled = true
         self.view.addSubview(self.tableView)
         
         // message input view
