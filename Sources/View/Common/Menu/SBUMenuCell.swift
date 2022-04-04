@@ -13,7 +13,6 @@ class SBUMenuCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var lineView: UIView!
-
     var type: MessageMenuItem? = nil
     var isEnabled: Bool = true
 
