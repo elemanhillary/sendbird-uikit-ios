@@ -326,7 +326,7 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
             [weak self] channels in
             
             guard let self = self else { return }
-            self.channelListHolder = channels
+            self.channelListHolder += channels
             self.upsertChannels(channels, needReload: true)
         }
     }
