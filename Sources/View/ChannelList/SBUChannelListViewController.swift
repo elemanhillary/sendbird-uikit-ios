@@ -36,6 +36,7 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
     /// - note: Type: GroupChannel / SuperGroupChannel / BroadcastChannel
     /// - Since: 1.2.0
     public lazy var createChannelTypeSelector: UIView? = nil
+    public var channelListHolder: [SBDGroupChannel] = []
 
     // for cell
     public private(set) var channelCell: SBUBaseChannelCell? = nil
@@ -325,7 +326,7 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
             [weak self] channels in
             
             guard let self = self else { return }
-            
+            self.channelListHolder = channels
             self.upsertChannels(channels, needReload: true)
         }
     }
