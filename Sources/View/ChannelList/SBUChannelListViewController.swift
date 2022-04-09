@@ -557,7 +557,7 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
         }
     }
     
-    public func shouldSetChannelList(channelList: [SBDBaseChannel]) {
+    public func shouldSetChannelList(channelList: [SBDGroupChannel]) {
         self.channelList = channelList
     }
     
