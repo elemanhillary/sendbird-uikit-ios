@@ -81,8 +81,8 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
     
     /// This object has a list of all channels.
     @SBUAtomic public private(set) var channelList: [SBDGroupChannel] = []
-    public var _channelList: [SBDGroupChannel] {
-        didSet { self.channelList = self._channelList}
+    public var channelListSetter: [SBDGroupChannel] {
+        didSet { self.channelList = self.channelListSetter}
     }
     
     
