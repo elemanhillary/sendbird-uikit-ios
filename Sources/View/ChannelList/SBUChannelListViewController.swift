@@ -80,7 +80,11 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
     // MARK: - Logic properties (Public)
     
     /// This object has a list of all channels.
-    @SBUAtomic public(set) var channelList: [SBDGroupChannel] = []
+    @SBUAtomic public private(set) var channelList: [SBDGroupChannel] = []
+    public var _channelList: [SBDGroupChannel] {
+        didSet { self.channelList = self._channelList}
+    }
+    
     
     /// This is a query used to get a list of channels. Only getter is provided, please use initialization function to set query directly.
     /// - note: For query properties, see `SBDGroupChannelListQuery` class.
