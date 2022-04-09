@@ -81,9 +81,6 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
     
     /// This object has a list of all channels.
     @SBUAtomic public private(set) var channelList: [SBDGroupChannel] = []
-    public var channelListSetter: [SBDGroupChannel] {
-        didSet { self.channelList = self.channelListSetter}
-    }
     
     
     /// This is a query used to get a list of channels. Only getter is provided, please use initialization function to set query directly.
@@ -558,6 +555,10 @@ open class SBUChannelListViewController: SBUBaseChannelListViewController {
                 forCellReuseIdentifier: channelCell.sbu_className
             )
         }
+    }
+    
+    public func shouldSetChannelList(channelList: [SBDBaseChannel]) {
+        self.channelList = channelList
     }
     
     /// Used to register a custom cell as a additional cell based on `SBUBaseChannelCell`.
