@@ -912,9 +912,10 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         case .none, .canceled, .pending:
             break
         case .failed:
-            print("RESEND MESSAGE FAILE", message.messageId)
             self.showFailedMessageMenu(message: message)
         case .succeeded:
+            
+                print("RESEND MESSAGE FAILE", message.messageId)
             switch message {
             case let userMessage as SBDUserMessage:
                 let isCurrentUser = userMessage.sender?.userId == SBUGlobals.CurrentUser?.userId
