@@ -912,6 +912,7 @@ open class SBUChannelViewController: SBUBaseChannelViewController {
         case .none, .canceled, .pending:
             break
         case .failed:
+            print("RESEND MESSAGE FAILE", message.messageId)
             self.showFailedMessageMenu(message: message)
         case .succeeded:
             switch message {
