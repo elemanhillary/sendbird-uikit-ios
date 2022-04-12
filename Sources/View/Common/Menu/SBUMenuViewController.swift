@@ -63,11 +63,10 @@ class SBUMenuViewController: SBUBaseViewController, UITableViewDelegate, UITable
         self.tableView.dataSource = self
         self.tableView.alwaysBounceVertical = false
         self.tableView.separatorStyle = .none
-//        self.tableView.register(
-//            SBUMenuCell.sbu_loadNib(),
-//            forCellReuseIdentifier: SBUMenuCell.sbu_className
-//        ) // for xib
-        self.tableView.register(UINib.init(nibName: "SBUMenuCell", bundle: nil), forCellReuseIdentifier: "SBUMenuCell")
+        self.tableView.register(
+            SBUMenuCell.sbu_loadNib(),
+            forCellReuseIdentifier: SBUMenuCell.sbu_className
+        ) // for xib
 
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 56
