@@ -171,7 +171,7 @@ class SBUMenuViewController: SBUBaseViewController, UITableViewDelegate, UITable
         case .delete:
             cell.isEnabled = message.threadInfo.replyCount == 0
         case .reply:
-            cell.isEnabled = message.parent == nil
+//            cell.isEnabled = message.parent == nil
         default: break
         }
         cell.configure(type: self.itemTypes[indexPath.row])
