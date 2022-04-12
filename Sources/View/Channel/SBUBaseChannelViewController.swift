@@ -1201,6 +1201,7 @@ open class SBUBaseChannelViewController: SBUBaseViewController {
             let pendingMessage = self.baseChannel?.resendUserMessage(
                 with: failedMessage
             ) { [weak self] message, error in
+                print("RESENDINF FAILED", error, message)
                 guard let self = self else { return }
                 self.handlePendingResendableMessage(message, error)
             }
